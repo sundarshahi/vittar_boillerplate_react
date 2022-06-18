@@ -1,45 +1,22 @@
-import { useState } from 'react'
-import logo from './logo.svg'
+import { Routes, Route } from 'react-router-dom';
+import { Center, Flex } from '@chakra-ui/react';
 
-function App():JSX.Element {
-  const [count, setCount] = useState(0)
-  const INCREMENT_BY_ONE=1
-  const onHandleClick:React.MouseEventHandler<HTMLButtonElement>| undefined=()=>setCount((previousNumber)=>previousNumber+INCREMENT_BY_ONE)
-  return (
-    <div className="flex items-center justify-center">
-      <header className="text-3xl font-bold">
-        <img src={logo} className="w-16" alt="logo" />
-        <p className='text-primary'>Hello Vite + React! + Optimization Test</p>
-        <p>
-          <button type="button" onClick={onHandleClick}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.tsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
-    </div>
-  )
+import Home from '~/components/Home';
+import About from '~/components/About';
+import LoginForm from '~/components/LoginForm';
+
+function App(): JSX.Element {
+	return (
+		<Flex justify='center' h='100vh' w='100vw' align='center'>
+			<Center w='100%'>
+				<LoginForm />
+			</Center>
+			{/* <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="about" element={<About />} />
+      </Routes> */}
+		</Flex>
+	);
 }
 
-export default App
+export default App;
